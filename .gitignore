@@ -1,0 +1,6 @@
+# NodeJS specific #
+node_modules/
+npm-debug.log
+
+# Build #
+build/
