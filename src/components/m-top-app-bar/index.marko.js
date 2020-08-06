@@ -32,7 +32,8 @@ function render(input, out, __component, component, state) {
       "mdc-top-app-bar",
       input.dense ? "mdc-top-app-bar--dense" : "",
       input.short ? "mdc-top-app-bar--short" : "",
-      input.fixed ? "mdc-top-app-bar--fixed" : ""
+      input.fixed ? "mdc-top-app-bar--fixed" : "",
+      input.prominent ? "mdc-top-app-bar--prominent" : ""
     ]) +
     "><div class=mdc-top-app-bar__row><section class=\"mdc-top-app-bar__section mdc-top-app-bar__section--align-start\"><button class=\"material-icons mdc-top-app-bar__navigation-icon mdc-icon-button\" aria-label=\"Open navigation menu\">" +
     marko_escapeXml(input.menuicon || "menu") +
