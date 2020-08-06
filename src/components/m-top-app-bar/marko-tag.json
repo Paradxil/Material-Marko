@@ -3,5 +3,6 @@
 	"@title" : "string",
 	"@dense" : null,
 	"@short" : null,
-	"@fixed" : null
+	"@fixed" : null,
+	"@prominent" : null
 }
