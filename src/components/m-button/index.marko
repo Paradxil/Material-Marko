@@ -21,6 +21,9 @@ class {
 	onMount() {
 		this.ripple = new mdc.ripple.MDCRipple(this.getEl("button"));
 	}
+	onDestroy() {
+		this.ripple.destroy();
+	}
 }
 
 div class="mdc-touch-target-wrapper"

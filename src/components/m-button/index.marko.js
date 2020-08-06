@@ -27,6 +27,9 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
         },
         onMount: function() {
           this.ripple = new mdc.ripple.MDCRipple(this.getEl("button"));
+        },
+        onDestroy: function() {
+          this.ripple.destroy();
         }
       },
     marko_componentType = "/materialmarko$0.0.1/src/components/m-button/index.marko",
