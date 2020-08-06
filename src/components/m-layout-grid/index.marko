@@ -1,0 +1,5 @@
+div class="mdc-layout-grid"
+	div class="mdc-layout-grid__inner"
+		for|cell| of=input.cells
+			div class=["mdc-layout-grid__cell",cell.span?"mdc-layout-grid__cell--span-"+cell.span:(input.span?"mdc-layout-grid__cell--span-"+input.span:false)]
+				<${cell.renderBody}/>
