@@ -26,20 +26,34 @@ function render(input, out, __component, component, state) {
 
   out.w("</head><body>");
 
-  m_top_app_bar_tag({}, out, __component, "8");
+  m_top_app_bar_tag({
+      title: {
+          renderBody: function(out) {
+            out.w("Material Marko");
+          }
+        },
+      actions: [
+          {
+              icon: "favorite"
+            },
+          {
+              icon: "bookmark"
+            }
+        ]
+    }, out, __component, "8");
 
   m_button_tag({
       renderBody: function(out) {
         out.w("Click Me");
       }
-    }, out, __component, "9");
+    }, out, __component, "12");
 
   m_button_tag({
       outlined: true,
       renderBody: function(out) {
         out.w("Outlined Button");
       }
-    }, out, __component, "10");
+    }, out, __component, "13");
 
   m_button_tag({
       contained: true,
@@ -47,7 +61,7 @@ function render(input, out, __component, component, state) {
       renderBody: function(out) {
         out.w("Contained Button");
       }
-    }, out, __component, "11");
+    }, out, __component, "14");
 
   m_button_tag({
       raised: true,
@@ -55,7 +69,7 @@ function render(input, out, __component, component, state) {
       renderBody: function(out) {
         out.w("Raised Button");
       }
-    }, out, __component, "12");
+    }, out, __component, "15");
 
   m_button_tag({
       raised: true,
@@ -63,15 +77,15 @@ function render(input, out, __component, component, state) {
       renderBody: function(out) {
         out.w("Disabled");
       }
-    }, out, __component, "13");
+    }, out, __component, "16");
 
-  lasso_body_tag({}, out, __component, "14");
+  lasso_body_tag({}, out, __component, "17");
 
-  lasso_body_tag({}, out, __component, "15");
+  lasso_body_tag({}, out, __component, "18");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "16");
+  await_reorderer_tag({}, out, __component, "19");
 
   _preferred_script_location_tag({}, out);
 
