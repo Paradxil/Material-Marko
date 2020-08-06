@@ -6,6 +6,8 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_renderer = require("marko/src/runtime/components/renderer"),
     marko_loadTag = require("marko/src/runtime/helpers/load-tag"),
     lasso_head_tag = marko_loadTag(require("@lasso/marko-taglib/taglib/head-tag")),
+    m_top_app_bar_template = require("../../components/m-top-app-bar"),
+    m_top_app_bar_tag = marko_loadTag(m_top_app_bar_template),
     m_button_template = require("../../components/m-button"),
     m_button_tag = marko_loadTag(m_button_template),
     lasso_body_tag = marko_loadTag(require("@lasso/marko-taglib/taglib/body-tag")),
@@ -22,7 +24,9 @@ function render(input, out, __component, component, state) {
 
   lasso_head_tag({}, out, __component, "6");
 
-  out.w("</head><body><h1>Hello World!</h1>");
+  out.w("</head><body>");
+
+  m_top_app_bar_tag({}, out, __component, "8");
 
   m_button_tag({
       renderBody: function(out) {
@@ -83,6 +87,7 @@ marko_template.meta = {
     id: "/materialmarko$0.0.1/src/pages/index/index.marko",
     tags: [
       "@lasso/marko-taglib/taglib/head-tag",
+      "../../components/m-top-app-bar",
       "../../components/m-button",
       "@lasso/marko-taglib/taglib/body-tag",
       "marko/src/core-tags/components/init-components-tag",
