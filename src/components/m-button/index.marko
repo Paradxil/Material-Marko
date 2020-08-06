@@ -19,12 +19,12 @@ class {
 		}
 	}
 	onMount() {
-		this.ripple = new mdc.ripple.MDCRipple(document.querySelector(this.getElId()));
+		this.ripple = new mdc.ripple.MDCRipple(this.getEl("button"));
 	}
 }
 
 div class="mdc-touch-target-wrapper"
-	button class=("mdc-button marko-mdc-button" + " mdc-button--" + state.type) disabled=input.disabled
+	button key="button" class=("mdc-button marko-mdc-button" + " mdc-button--" + state.type) disabled=input.disabled
 		div class="mdc-button__ripple"
 		<${input.icon?"i":false} class="material-icons mdc-button__icon" aria-hidden="true">${input.icon}</>
 		span class="mdc-button__label"

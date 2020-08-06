@@ -26,7 +26,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
           }
         },
         onMount: function() {
-          this.ripple = new mdc.ripple.MDCRipple(document.querySelector(this.getElId()));
+          this.ripple = new mdc.ripple.MDCRipple(this.getEl("button"));
         }
       },
     marko_componentType = "/materialmarko$0.0.1/src/components/m-button/index.marko",
@@ -54,7 +54,7 @@ function render(input, out, __component, component, state) {
       tagName +
       " class=\"material-icons mdc-button__icon\" aria-hidden=true>");
   } else {
-    out.bf("f_3", component, 1);
+    out.bf("f_2", component, 1);
   }
 
   out.w(marko_escapeXml(input.icon));
@@ -69,7 +69,7 @@ function render(input, out, __component, component, state) {
 
   out.w("<span class=mdc-button__label>");
 
-  marko_dynamicTag(out, input.renderBody, null, null, null, null, __component, "5");
+  marko_dynamicTag(out, input.renderBody, null, null, null, null, __component, "4");
 
   out.w("</span>");
 
@@ -80,7 +80,7 @@ function render(input, out, __component, component, state) {
       tagName2 +
       " class=\"material-icons mdc-button__icon\" aria-hidden=true>");
   } else {
-    out.bf("f_6", component, 1);
+    out.bf("f_5", component, 1);
   }
 
   out.w(marko_escapeXml(input.trailingicon));
