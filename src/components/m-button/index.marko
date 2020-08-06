@@ -1,0 +1,32 @@
+class {
+	onCreate() {
+		this.state = {
+			type:null
+		};
+	}
+	onInput(input) {
+		if(input.type) {
+			this.state.type = input.type;
+		}
+		if(input.contained||input.unelevated) {
+			this.state.type = "unelevated";
+		}
+		if(input.raised){
+			this.state.type = "raised";
+		}
+		if(input.outlined||input.outline){
+			this.state.type = "outlined";
+		}
+	}
+	onMount() {
+		this.ripple = new mdc.ripple.MDCRipple(document.querySelector(this.getElId()));
+	}
+}
+
+div class="mdc-touch-target-wrapper"
+	button class=("mdc-button marko-mdc-button" + " mdc-button--" + state.type) disabled=input.disabled
+		div class="mdc-button__ripple"
+		<${input.icon?"i":false} class="material-icons mdc-button__icon" aria-hidden="true">${input.icon}</>
+		span class="mdc-button__label"
+			<${input.renderBody}/>
+		<${input.trailingicon?"i":false} class="material-icons mdc-button__icon" aria-hidden="true">${input.trailingicon}</>

@@ -4,3 +4,6 @@ npm-debug.log
 
 # Build #
 build/
+.git
+.cache
+static/

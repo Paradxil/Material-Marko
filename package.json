@@ -4,8 +4,10 @@
   "description": "Material components for MarkoJS.",
   "main": "server.js",
   "scripts": {
+		"dev" : "browser-refresh server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Paradxil/Material-Marko.git"
@@ -25,8 +27,16 @@
   },
   "homepage": "https://github.com/Paradxil/Material-Marko#readme",
   "dependencies": {
+    "@lasso/marko-taglib": "^1.0.15",
+    "@material/ripple": "^7.0.0",
+    "babel": "^6.23.0",
+    "browser-refresh": "^1.7.3",
+    "express": "^4.17.1",
     "fs": "0.0.1-security",
     "git": "^0.1.5",
-    "marko": "^4.22.4"
+    "lasso": "^3.3.1",
+    "lasso-marko": "^2.5.0",
+    "marko": "^4.22.4",
+    "material-components-web": "^7.0.0"
   }
 }
