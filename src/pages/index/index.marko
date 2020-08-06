@@ -3,6 +3,9 @@ style {
 		margin: 0px;
 		padding: 0px;
 	}
+	.mdc-top-app-bar {
+		top:0px;
+	}
 }
 
 <!doctype>
@@ -18,9 +21,14 @@ html
 			@title -- Material Marko
 			@action icon="favorite"
 			@action icon="bookmark"
-		m-button -- Click Me
-		m-button outlined -- Outlined Button
-		m-button contained trailingicon="bookmark" -- Contained Button
-		m-button raised icon="favorite" -- Raised Button
-		m-button raised disabled -- Disabled
+		div.buttons-example style={width:"100%",marginTop:"50px",display:"flex"}
+			m-button -- Click Me
+			m-button outlined -- Outlined Button
+			m-button contained trailingicon="bookmark" -- Contained Button
+			m-button raised icon="favorite" -- Raised Button
+			m-button raised disabled -- Disabled
+		div.cards-example
+			m-card
+				@action -- Option 1
+				@action -- Option 2
 		lasso-body
