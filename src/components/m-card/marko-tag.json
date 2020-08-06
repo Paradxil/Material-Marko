@@ -1,4 +1,7 @@
 {
   "@actions <action>[]": { },
-	"@outlined" : null
+	"@outlined" : null,
+	"@img" : "string",
+	"@mediacontent": {},
+	"@primaryaction" : {}
 }

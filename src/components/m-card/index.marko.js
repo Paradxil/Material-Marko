@@ -4,8 +4,8 @@
 var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_componentType = "/materialmarko$0.0.1/src/components/m-card/index.marko",
     marko_renderer = require("marko/src/runtime/components/renderer"),
-    marko_styleAttr = require("marko/src/runtime/html/helpers/style-attr"),
     marko_dynamicTag = require("marko/src/runtime/helpers/dynamic-tag"),
+    marko_styleAttr = require("marko/src/runtime/html/helpers/style-attr"),
     marko_forOf = require("marko/src/runtime/helpers/for-of"),
     marko_attr = require("marko/src/runtime/html/helpers/attr"),
     marko_classAttr = require("marko/src/runtime/html/helpers/class-attr");
@@ -18,20 +18,42 @@ function render(input, out, __component, component, state) {
       "mdc-card",
       input.outlined ? "mdc-card--outlined" : ""
     ]) +
-    "><div class=mdc-card__primary-action tabindex=0><div class=mdc-card__media" +
+    "><div class=mdc-card__primary-action tabindex=0><div class=\"mdc-card__media mdc-card__media--square\"" +
     marko_styleAttr({
-      backgroundImage: ("url(\"" + input.img) + "\")"
+      backgroundImage: input.img ? ("url(\"" + input.img) + "\")" : false
     }) +
-    "><div class=mdc-card__media-content>Title</div></div>");
+    "><div class=mdc-card__media-content" +
+    marko_styleAttr({
+      padding: "16px"
+    }) +
+    ">");
 
-  if (input.primaryaction) {
-    marko_dynamicTag(out, input.primaryaction.renderBody, null, null, null, null, __component, "4");
+  if (input.mediacontent) {
+    marko_dynamicTag(out, input.mediacontent.renderBody, null, null, null, null, __component, "4");
   }
 
-  out.w("</div><div class=card-content>");
+  out.w("</div></div>");
+
+  if (input.primaryaction) {
+    out.w("<div" +
+      marko_styleAttr({
+        padding: "16px"
+      }) +
+      " class=primary-action-content>");
+
+    marko_dynamicTag(out, input.primaryaction.renderBody, null, null, null, null, __component, "6");
+
+    out.w("</div>");
+  }
+
+  out.w("</div><div" +
+    marko_styleAttr({
+      padding: "16px"
+    }) +
+    " class=card-content>");
 
   if (input.renderBody) {
-    marko_dynamicTag(out, input.renderBody, null, null, null, null, __component, "6");
+    marko_dynamicTag(out, input.renderBody, null, null, null, null, __component, "8");
   }
 
   out.w("</div><div class=mdc-card__actions>");
@@ -45,7 +67,7 @@ function render(input, out, __component, component, state) {
       marko_attr("title", action.title) +
       "><div class=mdc-button__ripple></div><span class=mdc-button__label>");
 
-    marko_dynamicTag(out, action.renderBody, null, null, null, null, __component, "11" + $keyScope$0);
+    marko_dynamicTag(out, action.renderBody, null, null, null, null, __component, "13" + $keyScope$0);
 
     out.w("</span></button>");
   });

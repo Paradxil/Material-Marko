@@ -1,10 +1,13 @@
 div class=["mdc-card",input.outlined?"mdc-card--outlined":""]
 	div class="mdc-card__primary-action" tabindex="0"
-		div class="mdc-card__media" style={backgroundImage:"url(\""+input.img+"\")"}
-			div class="mdc-card__media-content" -- Title
+		div class="mdc-card__media mdc-card__media--square" style={backgroundImage:input.img?"url(\""+input.img+"\")":false}
+			div class="mdc-card__media-content" style={padding:"16px"}
+				if(input.mediacontent)
+					<${input.mediacontent.renderBody}/>
 		if(input.primaryaction)
-			<${input.primaryaction.renderBody}/>
-	div.card-content
+			div.primary-action-content style={padding:"16px"}
+				<${input.primaryaction.renderBody}/>
+	div.card-content style={padding:"16px"}
 		if(input.renderBody)
 			<${input.renderBody}/>
 	div class="mdc-card__actions"
@@ -13,4 +16,4 @@ div class=["mdc-card",input.outlined?"mdc-card--outlined":""]
 				div class="mdc-button__ripple"
 				span class="mdc-button__label"
 					<${action.renderBody}/>
-	//TODO: Add icon buttons
+	//TODO: Add icon buttons and ripple effect.

@@ -9,9 +9,6 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
         onMount: function() {
           this.mdcComponent = new mdc.topAppBar.MDCTopAppBar(this.getEl());
         },
-        onInput: function(input) {
-          console.log(input);
-        },
         onDestroy: function() {
           this.mdcComponent.destroy();
         }
