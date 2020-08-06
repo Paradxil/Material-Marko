@@ -1,13 +1,19 @@
 class {
+	onCreate() {
+		this.mdcComponent = null;
+	}
 	onMount() {
-		this.topAppBar = new mdc.topAppBar.MDCTopAppBar(this.getEl());
+		this.mdcComponent = new mdc.topAppBar.MDCTopAppBar(this.getEl());
 	}
 	onInput(input) {
 		console.log(input);
 	}
+	onDestroy() {
+		this.mdcComponent.destroy();
+	}
 }
 
-header class="mdc-top-app-bar"
+header class=["mdc-top-app-bar",input.dense?"mdc-top-app-bar--dense":"",input.short?"mdc-top-app-bar--short":"",input.fixed?"mdc-top-app-bar--fixed":""]
 	div class="mdc-top-app-bar__row"
 		section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"
 			button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu" -- ${input.menuicon||"menu"}

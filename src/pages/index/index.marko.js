@@ -27,6 +27,7 @@ function render(input, out, __component, component, state) {
   out.w("</head><body>");
 
   m_top_app_bar_tag({
+      dense: true,
       title: {
           renderBody: function(out) {
             out.w("Material Marko");
@@ -98,6 +99,14 @@ marko_template._ = marko_renderer(render, {
   });
 
 marko_template.meta = {
+    deps: [
+      {
+          type: "css",
+          code: "body {\r\n\t\tmargin: 0px;\r\n\t\tpadding: 0px;\r\n\t}",
+          virtualPath: "./index.marko.css",
+          path: "./index.marko"
+        }
+    ],
     id: "/materialmarko$0.0.1/src/pages/index/index.marko",
     tags: [
       "@lasso/marko-taglib/taglib/head-tag",

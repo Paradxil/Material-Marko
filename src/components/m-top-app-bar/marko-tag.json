@@ -1,4 +1,7 @@
 {
   "@actions <action>[]": { },
-	"@title" : "string"
+	"@title" : "string",
+	"@dense" : null,
+	"@short" : null,
+	"@fixed" : null
 }

@@ -3,11 +3,17 @@
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_component = {
+        onCreate: function() {
+          this.mdcComponent = null;
+        },
         onMount: function() {
-          this.topAppBar = new mdc.topAppBar.MDCTopAppBar(this.getEl());
+          this.mdcComponent = new mdc.topAppBar.MDCTopAppBar(this.getEl());
         },
         onInput: function(input) {
           console.log(input);
+        },
+        onDestroy: function() {
+          this.mdcComponent.destroy();
         }
       },
     marko_componentType = "/materialmarko$0.0.1/src/components/m-top-app-bar/index.marko",
@@ -15,12 +21,20 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     helpers_escape_xml = require("marko/src/runtime/html/helpers/escape-xml"),
     marko_escapeXml = helpers_escape_xml.x,
     marko_dynamicTag = require("marko/src/runtime/helpers/dynamic-tag"),
-    marko_forOf = require("marko/src/runtime/helpers/for-of");
+    marko_forOf = require("marko/src/runtime/helpers/for-of"),
+    marko_classAttr = require("marko/src/runtime/html/helpers/class-attr");
 
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<header class=mdc-top-app-bar><div class=mdc-top-app-bar__row><section class=\"mdc-top-app-bar__section mdc-top-app-bar__section--align-start\"><button class=\"material-icons mdc-top-app-bar__navigation-icon mdc-icon-button\" aria-label=\"Open navigation menu\">" +
+  out.w("<header" +
+    marko_classAttr([
+      "mdc-top-app-bar",
+      input.dense ? "mdc-top-app-bar--dense" : "",
+      input.short ? "mdc-top-app-bar--short" : "",
+      input.fixed ? "mdc-top-app-bar--fixed" : ""
+    ]) +
+    "><div class=mdc-top-app-bar__row><section class=\"mdc-top-app-bar__section mdc-top-app-bar__section--align-start\"><button class=\"material-icons mdc-top-app-bar__navigation-icon mdc-icon-button\" aria-label=\"Open navigation menu\">" +
     marko_escapeXml(input.menuicon || "menu") +
     "</button><span class=mdc-top-app-bar__title>");
 
