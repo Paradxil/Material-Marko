@@ -1,0 +1,40 @@
+class {
+	onMount() {
+		if(this.input&&(this.input.modal||this.input.dismissible)) {
+			this.drawer = mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
+		}
+		else {
+			this.list = mdc.list.MDCList.attachTo(document.querySelector('.mdc-list'));
+		}
+	}
+	onInput(input) {
+		if(input&&this.drawer) {
+			this.drawer.open = input.open;
+			console.log(input.open);
+		}
+	}
+	clickInteraction(event) {
+		/*if(this.input.modal&&this.drawer) {
+			this.drawer.open = false;
+		}*/
+	}
+	//TODO: Handle focus selection for dismissible and modal drawers.
+}
+
+aside class=["mdc-drawer",input.modal?"mdc-drawer--modal":false,input.dismissible?"mdc-drawer--dismissible":false]
+	div class="mdc-drawer__content" on-click("clickInteraction")
+    nav class="mdc-list" on-click("clickInteraction")
+      a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page" tabindex="0"
+        span class="mdc-list-item__ripple"
+        i class="material-icons mdc-list-item__graphic" aria-hidden="true" -- inbox
+        span class="mdc-list-item__text" -- Inbox
+      a class="mdc-list-item" href="#"
+        span class="mdc-list-item__ripple"
+        i class="material-icons mdc-list-item__graphic" aria-hidden="true" -- send
+        span class="mdc-list-item__text" -- Outgoing
+      a class="mdc-list-item" href="#"
+        span class="mdc-list-item__ripple"
+        i class="material-icons mdc-list-item__graphic" aria-hidden="true" -- drafts
+        span class="mdc-list-item__text" -- Drafts
+if(input.modal)
+	div class="mdc-drawer-scrim" on-click("clickInteraction")
