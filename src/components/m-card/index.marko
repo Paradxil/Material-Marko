@@ -1,19 +1,25 @@
+macro name="media-content"
+	div class="mdc-card__media mdc-card__media--square" style={backgroundImage:input.mediacontent.img?"url(\""+input.mediacontent.img+"\")":false}
+		div class="mdc-card__media-content" style={padding:"16px"}
+			<${input.mediacontent.renderBody}/>
+
 div class=["mdc-card",input.outlined?"mdc-card--outlined":""]
-	div class="mdc-card__primary-action" tabindex="0"
-		div class="mdc-card__media mdc-card__media--square" style={backgroundImage:input.img?"url(\""+input.img+"\")":false}
-			div class="mdc-card__media-content" style={padding:"16px"}
-				if(input.mediacontent)
-					<${input.mediacontent.renderBody}/>
-		if(input.primaryaction)
+	if(input.primaryaction)
+		div class="mdc-card__primary-action" tabindex="0"
+			if(input.mediacontent)
+				media-content
 			div.primary-action-content style={padding:"16px"}
 				<${input.primaryaction.renderBody}/>
-	div.card-content style={padding:"16px"}
-		if(input.renderBody)
+	else-if(input.mediacontent)
+		media-content
+	if(input.renderBody)
+		div.card-content style={padding:"16px"}
 			<${input.renderBody}/>
-	div class="mdc-card__actions"
-		for|action| of=input.actions
-			button class="mdc-button mdc-card__action mdc-card__action--button" title=action.title
-				div class="mdc-button__ripple"
-				span class="mdc-button__label"
-					<${action.renderBody}/>
+	if(input.actions)
+		div class="mdc-card__actions"
+			for|action| of=input.actions
+				button class="mdc-button mdc-card__action mdc-card__action--button" title=action.title
+					div class="mdc-button__ripple"
+					span class="mdc-button__label"
+						<${action.renderBody}/>
 	//TODO: Add icon buttons and ripple effect.
