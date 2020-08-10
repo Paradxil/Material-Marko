@@ -23,13 +23,7 @@ app.use(markoExpress()); //enable res.marko(template, data)
 
 app.get("/", function(req, res) {
   res.marko(index, {});
-	if (process.send) {
-			process.send('online');
-	}
 });
-if (process.send) {
-		process.send('online');
-}
 app.listen(8080, function() {
 	if (process.send) {
 			process.send('online');
