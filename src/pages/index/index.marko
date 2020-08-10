@@ -11,6 +11,7 @@ style {
 <!doctype>
 html
 	head
+		meta name="viewport" content="width=device-width, initial-scale=1"
 		link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet"
 		script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"
 		link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -21,31 +22,31 @@ html
 			@title -- Material Marko
 			@action icon="favorite"
 			@action icon="bookmark"
-		div.buttons-example style={width:"100%",marginTop:"60px",display:"flex",placeContent:"space-evenly"}
+		div.buttons-example style={width:"100%",marginTop:"60px",display:"flex",placeContent:"space-evenly",flexWrap:"wrap"}
 			m-button -- Click Me
 			m-button outlined -- Outlined Button
 			m-button contained trailingicon="bookmark" -- Contained Button
 			m-button raised icon="favorite" -- Raised Button
 			m-button raised disabled -- Disabled
-		m-layout-grid span = 3
-			@cell span=2
-				m-card img="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+		m-layout-grid
+			@cell
+				m-card
+					@mediacontent img="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
 					-- This is a card.
 					@action -- Option 1
 					@action -- Option 2
 			@cell
-				m-card outlined img="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+				m-card outlined
 					@primaryaction
 						-- This is part of the primary action.
-					@mediacontent
+					@mediacontent img="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
 						h2 -- Media Content
 					@action -- Click Me
 					@action -- Learn More
 					@action -- Help!
 			@cell
 				m-card
-					@primaryaction
-						h2 -- Hot Air Balloons
+					h2 -- Hot Air Balloons
 					div -- Learn More about how we float.
-					@action -- Details
+		browser-refresh enabled="true"
 		lasso-body

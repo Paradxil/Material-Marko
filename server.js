@@ -1,5 +1,4 @@
 require("marko/node-require"); // Allow Node.js to require and load `.marko` files
-
 var express = require("express");
 var markoExpress = require("marko/express");
 var index = require("./src/pages/index");
@@ -24,6 +23,15 @@ app.use(markoExpress()); //enable res.marko(template, data)
 
 app.get("/", function(req, res) {
   res.marko(index, {});
+	if (process.send) {
+			process.send('online');
+	}
 });
-
-app.listen(8080);
+if (process.send) {
+		process.send('online');
+}
+app.listen(8080, function() {
+	if (process.send) {
+			process.send('online');
+	}
+});

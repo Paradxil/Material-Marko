@@ -15,6 +15,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     m_card_tag = marko_loadTag(m_card_template),
     m_layout_grid_template = require("../../components/m-layout-grid"),
     m_layout_grid_tag = marko_loadTag(m_layout_grid_template),
+    browser_refresh_tag = marko_loadTag(require("browser-refresh-taglib/refresh-tag")),
     lasso_body_tag = marko_loadTag(require("@lasso/marko-taglib/taglib/body-tag")),
     init_components_tag = marko_loadTag(require("marko/src/core-tags/components/init-components-tag")),
     await_reorderer_tag = marko_loadTag(require("marko/src/core-tags/core/await/reorderer-renderer")),
@@ -23,11 +24,11 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<!doctype><html><head><link href=https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css rel=stylesheet><script src=https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js></script><link rel=stylesheet href=https://fonts.googleapis.com/icon?family=Material+Icons><title>Material Marko</title>");
-
-  lasso_head_tag({}, out, __component, "5");
+  out.w("<!doctype><html><head><meta name=viewport content=\"width=device-width, initial-scale=1\"><link href=https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css rel=stylesheet><script src=https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js></script><link rel=stylesheet href=https://fonts.googleapis.com/icon?family=Material+Icons><title>Material Marko</title>");
 
   lasso_head_tag({}, out, __component, "6");
+
+  lasso_head_tag({}, out, __component, "7");
 
   out.w("</head><body>");
 
@@ -46,14 +47,15 @@ function render(input, out, __component, component, state) {
               icon: "bookmark"
             }
         ]
-    }, out, __component, "8");
+    }, out, __component, "9");
 
   out.w("<div" +
     marko_styleAttr({
       width: "100%",
       marginTop: "60px",
       display: "flex",
-      placeContent: "space-evenly"
+      placeContent: "space-evenly",
+      flexWrap: "wrap"
     }) +
     " class=buttons-example>");
 
@@ -61,14 +63,14 @@ function render(input, out, __component, component, state) {
       renderBody: function(out) {
         out.w("Click Me");
       }
-    }, out, __component, "13");
+    }, out, __component, "14");
 
   m_button_tag({
       outlined: true,
       renderBody: function(out) {
         out.w("Outlined Button");
       }
-    }, out, __component, "14");
+    }, out, __component, "15");
 
   m_button_tag({
       contained: true,
@@ -76,7 +78,7 @@ function render(input, out, __component, component, state) {
       renderBody: function(out) {
         out.w("Contained Button");
       }
-    }, out, __component, "15");
+    }, out, __component, "16");
 
   m_button_tag({
       raised: true,
@@ -84,7 +86,7 @@ function render(input, out, __component, component, state) {
       renderBody: function(out) {
         out.w("Raised Button");
       }
-    }, out, __component, "16");
+    }, out, __component, "17");
 
   m_button_tag({
       raised: true,
@@ -92,18 +94,18 @@ function render(input, out, __component, component, state) {
       renderBody: function(out) {
         out.w("Disabled");
       }
-    }, out, __component, "17");
+    }, out, __component, "18");
 
   out.w("</div>");
 
   m_layout_grid_tag({
-      span: 3,
       cells: [
           {
-              span: 2,
               renderBody: function(out) {
                 m_card_tag({
-                    img: "https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+                    mediacontent: {
+                        img: "https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+                      },
                     actions: [
                         {
                             renderBody: function(out) {
@@ -119,20 +121,20 @@ function render(input, out, __component, component, state) {
                     renderBody: function(out) {
                       out.w("This is a card.");
                     }
-                  }, out, __component, "20");
+                  }, out, __component, "21");
               }
             },
           {
               renderBody: function(out) {
                 m_card_tag({
                     outlined: true,
-                    img: "https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
                     primaryaction: {
                         renderBody: function(out) {
                           out.w("This is part of the primary action.");
                         }
                       },
                     mediacontent: {
+                        img: "https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
                         renderBody: function(out) {
                           out.w("<h2>Media Content</h2>");
                         }
@@ -154,40 +156,32 @@ function render(input, out, __component, component, state) {
                             }
                           }
                       ]
-                  }, out, __component, "24");
+                  }, out, __component, "26");
               }
             },
           {
               renderBody: function(out) {
                 m_card_tag({
-                    primaryaction: {
-                        renderBody: function(out) {
-                          out.w("<h2>Hot Air Balloons</h2>");
-                        }
-                      },
-                    actions: [
-                        {
-                            renderBody: function(out) {
-                              out.w("Details");
-                            }
-                          }
-                      ],
                     renderBody: function(out) {
-                      out.w("<div>Learn More about how we float.</div>");
+                      out.w("<h2>Hot Air Balloons</h2><div>Learn More about how we float.</div>");
                     }
-                  }, out, __component, "32");
+                  }, out, __component, "34");
               }
             }
         ]
-    }, out, __component, "18");
+    }, out, __component, "19");
 
-  lasso_body_tag({}, out, __component, "37");
+  browser_refresh_tag({
+      enabled: "true"
+    }, out, __component, "37");
 
   lasso_body_tag({}, out, __component, "38");
 
+  lasso_body_tag({}, out, __component, "39");
+
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "39");
+  await_reorderer_tag({}, out, __component, "40");
 
   _preferred_script_location_tag({}, out);
 
@@ -215,6 +209,7 @@ marko_template.meta = {
       "../../components/m-button",
       "../../components/m-card",
       "../../components/m-layout-grid",
+      "browser-refresh-taglib/refresh-tag",
       "@lasso/marko-taglib/taglib/body-tag",
       "marko/src/core-tags/components/init-components-tag",
       "marko/src/core-tags/core/await/reorderer-renderer",
