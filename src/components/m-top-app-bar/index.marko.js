@@ -8,6 +8,11 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
         },
         onMount: function() {
           this.mdcComponent = new mdc.topAppBar.MDCTopAppBar(this.getEl());
+
+          this.mdcComponent.listen("MDCTopAppBar:nav", this.navButtonClicked.bind(this));
+        },
+        navButtonClicked: function() {
+          this.emit("nav-clicked");
         },
         onDestroy: function() {
           this.mdcComponent.destroy();

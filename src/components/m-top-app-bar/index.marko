@@ -4,6 +4,10 @@ class {
 	}
 	onMount() {
 		this.mdcComponent = new mdc.topAppBar.MDCTopAppBar(this.getEl());
+		this.mdcComponent.listen('MDCTopAppBar:nav', this.navButtonClicked.bind(this));
+	}
+	navButtonClicked() {
+		this.emit("nav-clicked");
 	}
 	onDestroy() {
 		this.mdcComponent.destroy();
