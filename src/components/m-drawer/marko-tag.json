@@ -1,0 +1,11 @@
+{
+	"@items <item>[]": { },
+	"@header" : {},
+	"@title" : "string",
+	"@subtitle" : "string",
+	"@dismissible" : "boolean",
+	"@modal" : "boolean",
+	"@open" : "boolean",
+	"@active" : "boolean",
+	"@activeitem" : "number"
+}
