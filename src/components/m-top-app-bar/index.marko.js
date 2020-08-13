@@ -41,23 +41,33 @@ function render(input, out, __component, component, state) {
     marko_escapeXml(input.menuicon || "menu") +
     "</button><span class=mdc-top-app-bar__title>");
 
-  marko_dynamicTag(out, input.title.renderBody, null, null, null, null, __component, "5");
+  if (input.title) {
+    marko_dynamicTag(out, input.title.renderBody, null, null, null, null, __component, "5");
+  }
 
-  marko_dynamicTag(out, input.renderBody, null, null, null, null, __component, "6");
+  if (input) {
+    marko_dynamicTag(out, input.renderBody, null, null, null, null, __component, "6");
+  }
 
-  out.w("</span></section><section class=\"mdc-top-app-bar__section mdc-top-app-bar__section--align-end\" role=toolbar>");
+  out.w("</span></section>");
 
-  var $for$0 = 0;
+  if (input.actions) {
+    out.w("<section class=\"mdc-top-app-bar__section mdc-top-app-bar__section--align-end\" role=toolbar>");
 
-  marko_forOf(input.actions, function(action) {
-    var $keyScope$0 = "[" + (($for$0++) + "]");
+    var $for$0 = 0;
 
-    out.w("<button class=\"material-icons mdc-top-app-bar__action-item mdc-icon-button\">" +
-      marko_escapeXml(action.icon) +
-      "</button>");
-  });
+    marko_forOf(input.actions, function(action) {
+      var $keyScope$0 = "[" + (($for$0++) + "]");
 
-  out.w("</section></div></header>");
+      out.w("<button class=\"material-icons mdc-top-app-bar__action-item mdc-icon-button\">" +
+        marko_escapeXml(action.icon) +
+        "</button>");
+    });
+
+    out.w("</section>");
+  }
+
+  out.w("</div></header>");
 }
 
 marko_template._ = marko_renderer(render, {
