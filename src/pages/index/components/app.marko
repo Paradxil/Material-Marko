@@ -1,8 +1,11 @@
 class {
 	onCreate() {
 		this.state = {
+			currentPage: 0,
 			drawerOpen: false
 		};
+	}
+	onInput(input) {
 	}
 	navButtonClicked(event) {
 		this.state.drawerOpen = !this.state.drawerOpen;
@@ -17,24 +20,29 @@ style {
 	.mdc-top-app-bar {
 		top:0px;
 	}
-	.main-wrapper {
-		display:flex;
+	.app-wrapper {
 		height:100%;
 		width:100%;
+		overflow:hidden;
 	}
-	.main-content {
+	.app-page-content {
 		width: 100%;
 	}
 }
 
-div.main-wrapper
+div.app-wrapper
 	m-drawer dismissible open=state.drawerOpen
-	div.main-content.mdc-drawer-app-content
+		@header title="Material Marko" subtitle="Based on MDC Web"
+			h5 -- Marko Components made by Hunter Stratton
+		@item icon="favorite" text="Sample 1" active
+		@item icon="bookmark"
+			-- Sample 2
+	div.app-page-content.mdc-drawer-app-content
 		m-top-app-bar dense on-nav-clicked("navButtonClicked")
 			@title -- Material Marko
 			@action icon="favorite"
 			@action icon="bookmark"
-		div.buttons-example style={width:"100%",marginTop:"10px",display:"flex",placeContent:"space-evenly",flexWrap:"wrap"}
+		div.buttons-example style={width:"100%",marginTop:"60px",display:"flex",placeContent:"space-evenly",flexWrap:"wrap"}
 			m-button -- Click Me
 			m-button outlined -- Outlined Button
 			m-button contained trailingicon="bookmark" -- Contained Button
