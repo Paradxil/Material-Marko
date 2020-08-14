@@ -10,11 +10,9 @@ class {
 	onInput(input) {
 		if(input&&this.drawer) {
 			this.drawer.open = input.open;
-			console.log(input.open);
 		}
 	}
 	itemClicked(item,event) {
-		console.log(item);
 		this.emit("item-clicked",{item:item,index:item.index});
 	}
 	//TODO: Handle focus selection for dismissible and modal drawers.
