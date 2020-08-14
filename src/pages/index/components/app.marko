@@ -23,7 +23,7 @@ style {
 	.app-wrapper {
 		height:100%;
 		width:100%;
-		overflow:hidden;
+		overflow-x:hidden;
 	}
 	.app-page-content {
 		width: 100%;
@@ -33,7 +33,7 @@ style {
 div.app-wrapper
 	m-drawer dismissible open=state.drawerOpen
 		@header title="Material Marko" subtitle="Based on MDC Web"
-			h5 -- Marko Components made by Hunter Stratton
+			m-subtitle variant -- Marko Components made by Hunter Stratton
 		@item icon="favorite" text="Sample 1" active
 		@item icon="bookmark"
 			-- Sample 2
@@ -66,5 +66,5 @@ div.app-wrapper
 					@action -- Help!
 			@cell
 				m-card
-					h2 -- Hot Air Balloons
-					div -- Learn More about how we float.
+					m-h3 -- Hot Air Balloons
+					m-body -- Learn More about how we float.
