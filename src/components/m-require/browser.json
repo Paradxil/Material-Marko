@@ -1,0 +1,20 @@
+{
+	"dependencies": [
+			{
+				"type": "js",
+				"url": "https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"
+			},
+			{
+				"type": "css",
+				"url": "https://fonts.googleapis.com/icon?family=Material+Icons"
+			},
+			{
+				"type": "css",
+				"url": "https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+			},
+			{
+				"type": "css",
+				"url" : "https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+			}
+	]
+}
