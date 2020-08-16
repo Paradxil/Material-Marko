@@ -4,8 +4,7 @@
   "description": "Material components for MarkoJS.",
   "main": "server.js",
   "scripts": {
-    "dev": "browser-refresh server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "browser-refresh server.js"
   },
   "type": "module",
   "repository": {
