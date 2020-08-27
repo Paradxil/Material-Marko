@@ -2,11 +2,13 @@
 "use strict";
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
-    marko_componentType = "/materialmarko$0.0.1/src/pages/index/index.marko",
+    marko_componentType = "/materialmarko$0.0.2/src/pages/index/index.marko",
     marko_renderer = require("marko/src/runtime/components/renderer"),
     marko_loadTag = require("marko/src/runtime/helpers/load-tag"),
     lasso_page_tag = marko_loadTag(require("@lasso/marko-taglib/taglib/config-tag")),
     lasso_head_tag = marko_loadTag(require("@lasso/marko-taglib/taglib/head-tag")),
+    m_require_template = require("../../components/m-require"),
+    m_require_tag = marko_loadTag(m_require_template),
     app_template = require("./components/app.marko"),
     app_tag = marko_loadTag(app_template),
     lasso_body_tag = marko_loadTag(require("@lasso/marko-taglib/taglib/body-tag")),
@@ -23,27 +25,29 @@ function render(input, out, __component, component, state) {
       filename: __filename
     }, out);
 
-  out.w("<!doctype><html><head><meta name=viewport content=\"width=device-width, initial-scale=1\"><link href=https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css rel=stylesheet><script src=https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js></script><link rel=stylesheet href=https://fonts.googleapis.com/icon?family=Material+Icons><title>Material Marko</title>");
+  out.w("<!doctype><html><head><meta name=viewport content=\"width=device-width, initial-scale=1\"><title>Material Marko</title>");
+
+  lasso_head_tag({}, out, __component, "4");
+
+  m_require_tag({}, out, __component, "5");
 
   lasso_head_tag({}, out, __component, "6");
 
-  lasso_head_tag({}, out, __component, "7");
-
   out.w("</head><body>");
 
-  app_tag({}, out, __component, "9");
+  app_tag({}, out, __component, "8");
 
-  lasso_body_tag({}, out, __component, "10");
+  lasso_body_tag({}, out, __component, "9");
 
   browser_refresh_tag({
       enabled: "true"
-    }, out, __component, "11");
+    }, out, __component, "10");
 
-  lasso_body_tag({}, out, __component, "12");
+  lasso_body_tag({}, out, __component, "11");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "13");
+  await_reorderer_tag({}, out, __component, "12");
 
   _preferred_script_location_tag({}, out);
 
@@ -56,10 +60,11 @@ marko_template._ = marko_renderer(render, {
   });
 
 marko_template.meta = {
-    id: "/materialmarko$0.0.1/src/pages/index/index.marko",
+    id: "/materialmarko$0.0.2/src/pages/index/index.marko",
     tags: [
       "@lasso/marko-taglib/taglib/config-tag",
       "@lasso/marko-taglib/taglib/head-tag",
+      "../../components/m-require",
       "./components/app.marko",
       "@lasso/marko-taglib/taglib/body-tag",
       "browser-refresh-taglib/refresh-tag",

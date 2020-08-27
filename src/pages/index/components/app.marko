@@ -10,6 +10,9 @@ class {
 	navButtonClicked(event) {
 		this.state.drawerOpen = !this.state.drawerOpen;
 	}
+	changePage(event) {
+		this.state.currentPage = event.index;
+	}
 }
 
 style {
@@ -31,43 +34,21 @@ style {
 }
 
 div.app-wrapper
-	m-drawer dismissible open=state.drawerOpen
+	m-drawer dismissible open=state.drawerOpen on-item-clicked("changePage")
 		@header title="Material Marko" subtitle="Based on MDC Web"
 			m-subtitle variant -- Marko Components made by Hunter Stratton
-		@item icon="favorite" text="Sample 1" active
-		@item icon="bookmark"
-			-- Sample 2
+		@item icon="smart_button" text="Buttons" active
+		@item icon="dashboard" text="Cards"
+		@item icon="edit" text="Input"
 	div.app-page-content.mdc-drawer-app-content
 		m-top-app-bar dense on-nav-clicked("navButtonClicked")
 			@title -- Material Marko
 			@action icon="favorite"
 			@action icon="bookmark"
-		div.buttons-example style={width:"100%",marginTop:"60px",display:"flex",placeContent:"space-evenly",flexWrap:"wrap"}
-			m-button -- Click Me
-			m-button outlined -- Outlined Button
-			m-button contained trailingicon="bookmark" -- Contained Button
-			m-button raised icon="favorite" -- Raised Button
-			m-button raised disabled -- Disabled
-		m-layout-grid
-			@cell
-				m-card
-					@mediacontent img="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-					-- This is a card.
-					@action -- Option 1
-					@action -- Option 2
-			@cell
-				m-card outlined
-					@primaryaction
-						-- This is part of the primary action.
-					@mediacontent img="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-						h2 -- Media Content
-					@action -- Click Me
-					@action -- Learn More
-					@action -- Help!
-			@cell
-				m-card
-					m-h3 -- Hot Air Balloons
-					m-body -- Learn More about how we float.
-		m-layout-grid
-			@cell
-				m-textfield label="Username" outlined
+		div.spacer style={marginTop:"60px"}
+		if(state.currentPage===0)
+			page1
+		else-if(state.currentPage===1)
+			page2
+		else-if(state.currentPage===2)
+			page3
