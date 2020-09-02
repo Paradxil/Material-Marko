@@ -1,10 +1,13 @@
 class {
 	onMount() {
 		if(this.input&&(this.input.modal||this.input.dismissible)) {
-			this.drawer = mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
+			this.drawer = new mdc.drawer.MDCDrawer(this.getEl('mdc-drawer'));
+			if(this.input.open&&this.drawer) {
+				this.drawer.open = this.input.open;
+			}
 		}
 		else {
-			this.list = mdc.list.MDCList.attachTo(document.querySelector('.mdc-list'));
+			this.list = new mdc.list.MDCList(this.getEl('mdc-list'));
 		}
 	}
 	onInput(input) {
@@ -18,7 +21,7 @@ class {
 	//TODO: Handle focus selection for dismissible and modal drawers.
 }
 
-aside class=["mdc-drawer",input.modal?"mdc-drawer--modal":false,input.dismissible?"mdc-drawer--dismissible":false]
+aside class=["mdc-drawer",input.modal?"mdc-drawer--modal":false,input.dismissible?"mdc-drawer--dismissible":false] key="mdc-drawer" style={top:"0px"}
 	if(input.header)
 		div class="mdc-drawer__header"
 			if(input.header.title)
@@ -28,7 +31,7 @@ aside class=["mdc-drawer",input.modal?"mdc-drawer--modal":false,input.dismissibl
 			<${input.header.renderBody}/>
 	if(input.items)
 		div class="mdc-drawer__content"
-			nav class="mdc-list"
+			nav class="mdc-list" key="mdc-list"
 				$ var index = 0;
 				for|item| of=input.items
 					$ item.index = index;
