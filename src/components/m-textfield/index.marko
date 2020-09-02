@@ -26,6 +26,6 @@ label class=["mdc-text-field", input.outlined?"mdc-text-field--outlined":"mdc-te
 			span class="mdc-notched-outline__trailing"
 	else-if(input.label)
 		span class="mdc-floating-label" id:scoped="m-text-field-label" -- ${input.label}
-	input class="mdc-text-field__input" type="text" aria-labelledby:scoped="m-text-field-label" on-change("onChange") on-input("onInput")
+	input class="mdc-text-field__input" type="text" aria-labelledby:scoped="m-text-field-label" value=(input.prefilled?input.prefilled:(input.value?input.value:false)) on-change("onChange") on-input("onInput")
 	if(!input.outlined)
   	span class="mdc-line-ripple"
