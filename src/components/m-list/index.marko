@@ -1,0 +1,37 @@
+class {
+	onCreate() {
+		this.mdcComponent = null;
+	}
+	onMount() {
+		this.mdcComponent = new mdc.list.MDCList(this.getEl('mdc-list'));
+	}
+	itemClicked(item,event) {
+
+	}
+}
+
+ul key="mdc-list" class="mdc-list"
+	if(input.items)
+		for|item| of=input.items
+			<${(item.href||item.url) ? "a" : "li"} class=["mdc-list-item",item.active?"mdc-list-item--activated":false] href=(item.url?item.url:(item.href?item.href:false)) on-click("itemClicked",item)>
+				<span class="mdc-list-item__ripple"/>
+				<if(item.icon)>
+					<if(item.icon.renderBody)>
+						<i class="material-icons mdc-list-item__graphic"> <${item.icon.renderBody}/> </i>
+					</if>
+					<else>
+						<i class="material-icons mdc-list-item__graphic"> ${item.icon} </i>
+					</else>
+				</if>
+				<if(item.text)>
+					<if(item.text.renderBody)>
+						<span class="mdc-list-item__text"> <${item.text.renderBody}/> </span>
+					</if>
+					<else>
+						<span class="mdc-list-item__text"> ${item.text} </span>
+					</else>
+				</if>
+				<if(item.renderBody)>
+					<${item.renderBody}/>
+				</if>
+			</>

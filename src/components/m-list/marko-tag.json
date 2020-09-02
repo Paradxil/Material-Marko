@@ -1,0 +1,8 @@
+{
+	"@items <item>[]": { },
+	"@active" : "boolean",
+	"@url" : "string",
+	"@href" : "string",
+	"@icon" : "string",
+	"@text" : "string"
+}
