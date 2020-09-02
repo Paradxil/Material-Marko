@@ -1,0 +1,19 @@
+class {
+	onCreate() {
+		this.state = {
+
+		};
+		this.mdcComponent = null;
+	}
+	onMount() {
+		this.mdcComponent = new mdc.switchControl.MDCSwitch(this.getEl("m-switch"));
+	}
+}
+if(input.label)
+	label for:scoped="m-switch" style={marginRight:"15px"}
+		m-overline -- ${input.label}
+div key="m-switch" class="mdc-switch" style={verticalAlign:"middle"}
+	div class="mdc-switch__track"
+	div class="mdc-switch__thumb-underlay"
+		div class="mdc-switch__thumb"
+    input type="checkbox" id:scoped="m-switch" class="mdc-switch__native-control" role="switch" aria-checked="false"
