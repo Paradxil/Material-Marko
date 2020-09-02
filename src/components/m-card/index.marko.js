@@ -2,7 +2,7 @@
 "use strict";
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
-    marko_componentType = "/materialmarko$0.0.1/src/components/m-card/index.marko",
+    marko_componentType = "/materialmarko$0.0.3/src/components/m-card/index.marko",
     marko_renderer = require("marko/src/runtime/components/renderer"),
     marko_dynamicTag = require("marko/src/runtime/helpers/dynamic-tag"),
     marko_styleAttr = require("marko/src/runtime/html/helpers/style-attr"),
@@ -32,7 +32,8 @@ function render(input, out, __component, component, state) {
   out.w("<div" +
     marko_classAttr([
       "mdc-card",
-      input.outlined ? "mdc-card--outlined" : ""
+      input.outlined ? "mdc-card--outlined" : "",
+      input.class
     ]) +
     ">");
 
@@ -97,5 +98,5 @@ marko_template._ = marko_renderer(render, {
   });
 
 marko_template.meta = {
-    id: "/materialmarko$0.0.1/src/components/m-card/index.marko"
+    id: "/materialmarko$0.0.3/src/components/m-card/index.marko"
   };

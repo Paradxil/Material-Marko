@@ -3,7 +3,7 @@ macro name="media-content"
 		div class="mdc-card__media-content" style={padding:"16px"}
 			<${input.mediacontent.renderBody}/>
 
-div class=["mdc-card",input.outlined?"mdc-card--outlined":""]
+div class=["mdc-card",input.outlined?"mdc-card--outlined":"",input.class]
 	if(input.primaryaction)
 		div class="mdc-card__primary-action" tabindex="0"
 			if(input.mediacontent)

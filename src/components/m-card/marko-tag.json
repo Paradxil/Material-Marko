@@ -1,7 +1,10 @@
 {
+	"html" : true,
   "@actions <action>[]": { },
 	"@outlined" : null,
 	"@img" : "string",
 	"@mediacontent": {},
-	"@primaryaction" : {}
+	"@primaryaction" : {},
+	"@class" : {},
+	"@style" : {}
 }
