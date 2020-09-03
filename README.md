@@ -7,13 +7,13 @@ This is an implemenation of MDC web components for MarkoJS. This makes it much e
 ## Usage
 For the purposes of this tutorial I assume that you already have a working MarkoJS environment.
 
-The easiest way to install Material-Marko is using npm. 
+The easiest way to install Material-Marko is using npm.
 
 `npm i material-marko`
 
-MarkoJS will automatically locate the material components. 
+MarkoJS will automatically locate the material components.
 
-All material components start with `m-` making them easy to identify. Documentation for each component is in the works. 
+All material components start with `m-` making them easy to identify. Documentation for each component is in the works.
 
 ## Sample Webpage / Development
 To run the sample webpage clone this repo and run `npm start`.
@@ -31,6 +31,7 @@ The following components are available in some form. While they are all usable n
 - m-switch
 - m-textfield
 - m-top-app-bar
+- m-list
 
 In addition the follow typography elements have been implemented:
 - m-body
@@ -51,7 +52,7 @@ You can use each component like you would any other tag in MarkoJS. Here are a f
 
 **m-button**
 
-![Raised Button](https://github.com/Paradxil/Material-Marko/blob/master/images/m-button/m-button-raised.png)
+![Raised Button](./images/m-button/m-button-raised.png)
 
 `m-button raised icon="bookmark" -- Save Post`
 
@@ -60,5 +61,5 @@ Moving forward I plan to implement all MDC web components as found here: [Materi
 
 I also want to add easy theming for material components and a few helper components to make designing webpages easier.
 
-## Contact Me
-Feel free to submit an issue on GitHub.
+## Authors
+- Hunter Stratton

@@ -24,12 +24,17 @@ class {
 	onDestroy() {
 		this.ripple.destroy();
 	}
+	onClick(event) {
+		this.emit("click");
+	}
 }
 
 div class="mdc-touch-target-wrapper"
-	button key="button" class=("mdc-button marko-mdc-button" + " mdc-button--" + state.type) disabled=input.disabled
+	button key="button" class=("mdc-button marko-mdc-button" + " mdc-button--" + state.type) disabled=input.disabled on-click("onClick")
 		div class="mdc-button__ripple"
 		<${input.icon?"i":false} class="material-icons mdc-button__icon" aria-hidden="true">${input.icon}</>
 		span class="mdc-button__label"
+			if(input.text)
+				-- ${input.text}
 			<${input.renderBody}/>
 		<${input.trailingicon?"i":false} class="material-icons mdc-button__icon" aria-hidden="true">${input.trailingicon}</>

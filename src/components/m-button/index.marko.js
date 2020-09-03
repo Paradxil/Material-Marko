@@ -30,9 +30,12 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
         },
         onDestroy: function() {
           this.ripple.destroy();
+        },
+        onClick: function(event) {
+          this.emit("click");
         }
       },
-    marko_componentType = "/materialmarko$0.0.1/src/components/m-button/index.marko",
+    marko_componentType = "/materialmarko$0.0.3/src/components/m-button/index.marko",
     marko_renderer = require("marko/src/runtime/components/renderer"),
     helpers_escape_xml = require("marko/src/runtime/html/helpers/escape-xml"),
     marko_escapeXml = helpers_escape_xml.x,
@@ -72,6 +75,10 @@ function render(input, out, __component, component, state) {
 
   out.w("<span class=mdc-button__label>");
 
+  if (input.text) {
+    out.w(marko_escapeXml(input.text));
+  }
+
   marko_dynamicTag(out, input.renderBody, null, null, null, null, __component, "4");
 
   out.w("</span>");
@@ -104,6 +111,6 @@ marko_template._ = marko_renderer(render, {
   }, marko_component);
 
 marko_template.meta = {
-    id: "/materialmarko$0.0.1/src/components/m-button/index.marko",
+    id: "/materialmarko$0.0.3/src/components/m-button/index.marko",
     component: "./"
   };
