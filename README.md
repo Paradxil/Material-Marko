@@ -24,7 +24,7 @@ Navigate to `http://localhost:8080/` in your browser to view the sample website.
 
 ## Available Material Components
 The following components are available in some form. While they are all usable not all of them are feature complete.
-- [m-button]("./src/components/m-button")
+- [m-button](/src/components/m-button)
 - m-card
 - m-drawer
 - m-layout-grid
