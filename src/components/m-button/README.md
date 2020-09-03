@@ -38,6 +38,17 @@ These can be defined using the respective tag attributes:
 - `text` - Appears to the right of the icon.
 - `trailingicon` - Appears after the text.
 
+#### Text
+
+You can add text using the `text` attribute. You can also add text and any arbitrary content to the tag body.
+
+```marko
+m-button icon="save" outlined
+  m-body -- Save
+```
+
+#### Icons
+
 Icons are [Material Icons]("https://material.io/resources/icons/?style=baseline") and are defined using strings.
 
 For example `icon="settings"` would add a gear icon to the button.
